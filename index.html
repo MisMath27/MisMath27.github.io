@@ -7,13 +7,17 @@
     <title>Компас 3D на заказ | Инженерная графика</title>
     <link rel="icon" href="favicon.jpg" type="image/jpeg">
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        html, body {
             margin: 0;
             padding: 0;
+            min-height: 100vh;
+            background-color: transparent;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
             color: white;
             text-shadow: 2px 2px 5px black;
-            min-height: 100vh;
             position: relative;
         }
 
@@ -29,7 +33,7 @@
         /* Первая картинка (верхняя) - на всю высоту экрана */
         .bg-top {
             width: 100%;
-            height: 100vh; /* ровно один экран */
+            height: 100vh;
             background-image: url('fon 1.jpg');
             background-size: cover;
             background-position: center;
@@ -39,7 +43,7 @@
         /* Вторая картинка (нижняя) - тоже на всю высоту экрана */
         .bg-bottom {
             width: 100%;
-            height: 100vh; /* ровно один экран */
+            height: 100vh;
             background-image: url('fon 2.jpg');
             background-size: cover;
             background-position: center;
@@ -67,7 +71,7 @@
             flex-direction: column;
             align-items: center;
             gap: 20px;
-            min-height: 200vh; /* чтобы можно было прокрутить до второй картинки */
+            min-height: 200vh;
             box-sizing: border-box;
         }
 
@@ -185,10 +189,12 @@
                 order: 1;
             }
         }
+
         html {
-    scroll-behavior: smooth;
-}
- /* БЛОК СОГЛАСИЯ НА ОБРАБОТКУ ДАННЫХ */
+            scroll-behavior: smooth;
+        }
+
+        /* БЛОК СОГЛАСИЯ НА ОБРАБОТКУ ДАННЫХ */
         .consent-block {
             background-color: rgba(0, 0, 0, 0.3);
             border-left: 3px solid #3498db;
@@ -201,16 +207,16 @@
         }
 
         .consent-label {
-    display: inline-flex;        /* ← было flex, стало inline-flex */
-    align-items: flex-start;
-    gap: 10px;
-    cursor: pointer;
-    line-height: 1.4;
-    color: white;
-    max-width: fit-content;      /* ← сужаем до размера контента */
-    background-color: transparent;
-    padding: 2px 0;               /* небольшой отступ по вертикали */
-}
+            display: inline-flex;
+            align-items: flex-start;
+            gap: 10px;
+            cursor: pointer;
+            line-height: 1.4;
+            color: white;
+            max-width: fit-content;
+            background-color: transparent;
+            padding: 2px 0;
+        }
 
         .consent-checkbox {
             width: 18px;
@@ -222,19 +228,19 @@
         }
 
         .privacy-link {
-    color: #333638;  /* тот же серый, что и у кнопок */
-    text-decoration: underline;
-    font-weight: 500;
-    background-color: transparent;
-    padding: 0;
-    display: inline;
-    transition: color 0.3s;
-}
+            color: #333638;
+            text-decoration: underline;
+            font-weight: 500;
+            background-color: transparent;
+            padding: 0;
+            display: inline;
+            transition: color 0.3s;
+        }
 
-.privacy-link:hover {
-    color: #2980b9;  /* при наведении становится синим, как кнопки */
-    text-decoration: underline;
-}
+        .privacy-link:hover {
+            color: #2980b9;
+            text-decoration: underline;
+        }
 
         /* Состояние кнопок */
         .button-container {
@@ -252,7 +258,7 @@
             pointer-events: auto;
         }
 
-        /* Стили для кнопок (переопределяем, если нужно) */
+        /* Стили для кнопок */
         .button-container a {
             display: inline-block;
             margin: 5px;
@@ -265,11 +271,10 @@
         }
 
         .privacy-link:hover {
-    color: white;
-    background-color: #2980b9 !important;
-    text-decoration: underline;
-    /* padding и border-radius убраны — они уже есть в обычном состоянии */
-}
+            color: white;
+            background-color: #2980b9 !important;
+            text-decoration: underline;
+        }
 
         /* Для мобильных */
         @media (max-width: 600px) {
@@ -283,41 +288,266 @@
                 margin: 5px 0;
             }
         }
-        /* Убираем затухание только у ссылки политики конфиденциальности */
-.privacy-link {
-    opacity: 1 !important;
-    transition: none !important;
+
+        /* Убираем затухание */
+        .privacy-link {
+            opacity: 1 !important;
+            transition: none !important;
+        }
+
+        .consent-block .privacy-link {
+            opacity: 1 !important;
+            transition: none !important;
+        }
+
+        .consent-block,
+        .consent-block * {
+            opacity: 1 !important;
+        }
+
+        /* Ограничиваем область наведения чекбокса */
+        .consent-label {
+            display: inline-flex;
+            width: auto;
+            max-width: fit-content;
+        }
+
+        .consent-block {
+            pointer-events: none;
+        }
+
+        .consent-label {
+            pointer-events: auto;
+        }
+
+        .consent-block a {
+            pointer-events: auto;
+        }
+
+        /* Стили для cookie-баннера */
+        .cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(30, 30, 30, 0.95);
+            backdrop-filter: blur(10px);
+            color: white;
+            padding: 16px 20px;
+            z-index: 10000;
+            display: none;
+            border-top: 3px solid #3498db;
+            box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.3);
+            font-family: Arial, sans-serif;
+        }
+
+        .cookie-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .cookie-text {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .cookie-text p {
+            margin: 0;
+            font-size: 15px;
+            line-height: 1.5;
+            color: #f0f0f0;
+        }
+
+        .cookie-text a {
+            color: #3498db;
+            text-decoration: underline;
+            font-weight: 500;
+        }
+
+        .cookie-text a:hover {
+            color: #5faee3;
+        }
+
+        .cookie-buttons {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .cookie-btn {
+            padding: 10px 24px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 15px;
+            font-weight: 600;
+            transition: all 0.3s;
+            min-width: 120px;
+        }
+
+        .cookie-btn.accept {
+            background-color: #27ae60;
+            color: white;
+        }
+
+        .cookie-btn.accept:hover {
+            background-color: #2ecc71;
+            transform: scale(1.02);
+        }
+
+        .cookie-btn.decline {
+            background-color: #555;
+            color: white;
+        }
+
+        .cookie-btn.decline:hover {
+            background-color: #777;
+            transform: scale(1.02);
+        }
+
+        /* Адаптация для мобильных */
+        @media (max-width: 700px) {
+            .cookie-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .cookie-buttons {
+                justify-content: center;
+                width: 100%;
+            }
+            
+            .cookie-btn {
+                flex: 1;
+                min-width: 140px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .cookie-buttons {
+                flex-direction: column;
+                width: 100%;
+            }
+            
+            .cookie-btn {
+                width: 100%;
+            }
+        }
+
+        /* ===== ПОДВАЛ С ТЁМНЫМ ФОНОМ ===== */
+.site-footer {
+    width: 100%;
+    margin-top: 0px !important;        /* отступ сверху */
+    padding: 20px 15px !important;
+    background-color: rgba(0, 0, 0, 0.7) !important;  /* тёмный полупрозрачный */
+    backdrop-filter: blur(5px);          /* лёгкое размытие фона */
+    color: #fff;
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+    border-radius: 0 0 0 0;       /* скругление сверху */
+    box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.3);
 }
 
-/* Если ссылка находится внутри блока с затуханием */
-.consent-block .privacy-link {
-    opacity: 1 !important;
-    transition: none !important;
+.site-footer button,
+.site-footer a {
+    pointer-events: auto;  /* кнопки и ссылки кликабельны */
+    position: relative;
+    z-index: 10;
+}
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            text-align: center;
+        }
+
+        .cookie-settings-btn {
+            background: transparent;
+            border: 2px solid #3498db;
+            color: #3498db;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .cookie-settings-btn:hover {
+            background-color: #3498db;
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin: 5px 0;
+        }
+
+        .footer-links a {
+            color: #3498db;
+            text-decoration: none;
+            font-size: 15px;
+            transition: color 0.3s;
+            padding: 0 5px;
+        }
+
+        .footer-links a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+
+        .separator {
+            color: #555;
+            font-weight: 300;
+        }
+
+        .copyright {
+            color: #aaa;
+            font-size: 13px;
+            letter-spacing: 0.5px;
+        }
+
+        @media (max-width: 600px) {
+            .footer-links {
+                flex-direction: column;
+                gap: 5px;
+            }
+            
+            .separator {
+                display: none;
+            }
+            
+            .footer-links a {
+                display: block;
+                padding: 5px 0;
+            }
+            
+            .cookie-settings-btn {
+                width: 100%;
+                max-width: 250px;
+            }
+        }
+        /* Исправление наложения подвала */
+.site-footer {
+    pointer-events: none;  /* подвал не перехватывает клики */
 }
 
-/* Убираем возможное затухание от родительских элементов */
-.consent-block,
-.consent-block * {
-    opacity: 1 !important;
-}
-/* Ограничиваем область наведения чекбокса */
-.consent-label {
-    display: inline-flex;
-    width: auto;
-    max-width: fit-content;
-}
-
-/* Убираем hover-эффект с пустой области */
-.consent-block {
-    pointer-events: none;  /* блок не реагирует на hover */
-}
-
-.consent-label {
-    pointer-events: auto;  /* реагирует только label */
-}
-
-.consent-block a {
-    pointer-events: auto;  /* ссылка тоже реагирует */
+.site-footer button,
+.site-footer a {
+    pointer-events: auto;  /* но кнопка и ссылки кликабельны */
 }
     </style>
 </head>
@@ -339,23 +569,19 @@
                 <li>🛠️ Удалённая помощь</li>
                 <li>📞 Связь со мной: +7 (986) 766-96-70</li>
             </ul>
-            <!-- Блок согласия на обработку данных -->
-<div class="consent-block">
-    <label class="consent-label">
-        <input type="checkbox" id="dataConsent" class="consent-checkbox">
-        <span>Нажимая на кнопки Avito или Telegram, я даю согласие на обработку персональных данных и соглашаюсь с <a href="privacy.html" target="_blank" class="privacy-link">Политикой конфиденциальности</a>.</span>
-    </label>
-</div>
+            
+            <div class="consent-block">
+                <label class="consent-label">
+                    <input type="checkbox" id="dataConsent" class="consent-checkbox">
+                    <span>Нажимая на кнопки Avito или Telegram, я даю согласие на обработку персональных данных и соглашаюсь с <a href="privacy.html" target="_blank" class="privacy-link">Политикой конфиденциальности</a>.</span>
+                </label>
+            </div>
 
-<!-- Кнопки (изначально скрыты или заблокированы) -->
-<div id="actionButtons" class="button-container disabled">
-    <a href="https://www.avito.ru/vyksa/predlozheniya_uslug/kompas_3d_inzhenernaya_i_kompyuternaya_grafika_7928566217" target="_blank" class="consent-button">✅ Моё объявление на Авито</a>
-    <a href="https://t.me/MisMath29" target="_blank" class="consent-button">✅ Написать мне в Telegram</a>
-    <a href="https://t.me/+lamV-xIGVA1kZjNi" target="_blank" class="consent-button">✅ Мой Telegram-канал</a>
-
-
-
-</div>
+            <div id="actionButtons" class="button-container disabled">
+                <a href="https://www.avito.ru/vyksa/predlozheniya_uslug/kompas_3d_inzhenernaya_i_kompyuternaya_grafika_7928566217" target="_blank" class="consent-button">✅ Моё объявление на Авито</a>
+                <a href="https://t.me/MisMath29" target="_blank" class="consent-button">✅ Написать мне в Telegram</a>
+                <a href="https://t.me/+lamV-xIGVA1kZjNi" target="_blank" class="consent-button">✅ Мой Telegram-канал</a>
+            </div>
         </div>
 
         <!-- Правый блок -->
@@ -366,14 +592,14 @@
             <p>Опыт работы более 2 лет. Выполняю чертежи любой сложности строго по ГОСТ.</p>
         </div>
     </div>
-      <!-- СКРИПТ ДЛЯ СОГЛАСИЯ НА ОБРАБОТКУ ДАННЫХ -->
+
+    <!-- СКРИПТ ДЛЯ СОГЛАСИЯ НА ОБРАБОТКУ ДАННЫХ -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const consentCheckbox = document.getElementById('dataConsent');
             const buttonContainer = document.getElementById('actionButtons');
 
             if (consentCheckbox && buttonContainer) {
-                // Проверяем начальное состояние
                 consentCheckbox.addEventListener('change', function() {
                     if (this.checked) {
                         buttonContainer.classList.remove('disabled');
@@ -384,7 +610,6 @@
                     }
                 });
 
-                // Если нужно сохранять выбор пользователя (localStorage)
                 const savedConsent = localStorage.getItem('userConsent');
                 if (savedConsent === 'true') {
                     consentCheckbox.checked = true;
@@ -392,244 +617,118 @@
                     buttonContainer.classList.add('active');
                 }
 
-                // Сохраняем выбор при изменении
                 consentCheckbox.addEventListener('change', function() {
                     localStorage.setItem('userConsent', this.checked);
                 });
             }
         });
     </script>
+
+    <!-- COOKIE-БАННЕР -->
     <div id="cookieConsentBanner" class="cookie-banner">
-    <div class="cookie-content">
-        <div class="cookie-text">
-            <p>🍪 Мы используем файлы cookie, чтобы улучшить работу сайта. Продолжая использовать сайт, вы соглашаетесь с <a href="privacy.html" target="_blank">Политикой конфиденциальности</a>.</p>
-        </div>
-        <div class="cookie-buttons">
-            <button id="acceptCookies" class="cookie-btn accept">✅ Принять</button>
-            <button id="declineCookies" class="cookie-btn decline">❌ Отказаться</button>
+        <div class="cookie-content">
+            <div class="cookie-text">
+                <p>🍪 Мы используем файлы cookie, чтобы улучшить работу сайта. Продолжая использовать сайт, вы соглашаетесь с <a href="privacy.html" target="_blank">Политикой конфиденциальности</a>.</p>
+            </div>
+            <div class="cookie-buttons">
+                <button id="acceptCookies" class="cookie-btn accept">✅ Принять</button>
+                <button id="declineCookies" class="cookie-btn decline">❌ Отказаться</button>
+            </div>
         </div>
     </div>
-</div>
 
-<style>
-/* Стили для cookie-баннера */
-.cookie-banner {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: rgba(30, 30, 30, 0.95);
-    backdrop-filter: blur(10px);
-    color: white;
-    padding: 16px 20px;
-    z-index: 10000;
-    display: none;
-    border-top: 3px solid #3498db;
-    box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.3);
-    font-family: Arial, sans-serif;
-}
-
-.cookie-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-
-.cookie-text {
-    flex: 1;
-    min-width: 250px;
-}
-
-.cookie-text p {
-    margin: 0;
-    font-size: 15px;
-    line-height: 1.5;
-    color: #f0f0f0;
-}
-
-.cookie-text a {
-    color: #3498db;
-    text-decoration: underline;
-    font-weight: 500;
-}
-
-.cookie-text a:hover {
-    color: #5faee3;
-}
-
-.cookie-buttons {
-    display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
-}
-
-.cookie-btn {
-    padding: 10px 24px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 15px;
-    font-weight: 600;
-    transition: all 0.3s;
-    min-width: 120px;
-}
-
-.cookie-btn.accept {
-    background-color: #27ae60;
-    color: white;
-}
-
-.cookie-btn.accept:hover {
-    background-color: #2ecc71;
-    transform: scale(1.02);
-}
-
-.cookie-btn.decline {
-    background-color: #555;
-    color: white;
-}
-
-.cookie-btn.decline:hover {
-    background-color: #777;
-    transform: scale(1.02);
-}
-
-/* Адаптация для мобильных */
-@media (max-width: 700px) {
-    .cookie-content {
-        flex-direction: column;
-        text-align: center;
-    }
-    
-    .cookie-buttons {
-        justify-content: center;
-        width: 100%;
-    }
-    
-    .cookie-btn {
-        flex: 1;
-        min-width: 140px;
-    }
-}
-
-@media (max-width: 400px) {
-    .cookie-buttons {
-        flex-direction: column;
-        width: 100%;
-    }
-    
-    .cookie-btn {
-        width: 100%;
-    }
-}
-</style>
-
-<script>
-// Логика работы cookie-баннера
-document.addEventListener('DOMContentLoaded', function() {
-    const cookieBanner = document.getElementById('cookieConsentBanner');
-    const acceptBtn = document.getElementById('acceptCookies');
-    const declineBtn = document.getElementById('declineCookies');
-    
-    // Проверяем, есть ли уже сохранённый выбор
-    const cookieChoice = localStorage.getItem('cookieConsent');
-    
-    // Если выбора ещё нет — показываем баннер
-    if (!cookieChoice) {
-        cookieBanner.style.display = 'block';
-    } else {
-        // Если выбор есть — применяем его (загружаем или не загружаем аналитику)
-        applyCookieConsent(cookieChoice);
-    }
-    
-    // Обработчик кнопки "Принять"
-    acceptBtn.addEventListener('click', function() {
-        localStorage.setItem('cookieConsent', 'accepted');
-        cookieBanner.style.display = 'none';
-        applyCookieConsent('accepted');
-    });
-    
-    // Обработчик кнопки "Отказаться"
-    declineBtn.addEventListener('click', function() {
-        localStorage.setItem('cookieConsent', 'declined');
-        cookieBanner.style.display = 'none';
-        applyCookieConsent('declined');
-    });
-    
-    // Функция применения выбора пользователя
-    function applyCookieConsent(choice) {
-        if (choice === 'accepted') {
-            console.log('✅ Cookies приняты — можно загружать аналитику');
-            // ЗДЕСЬ ЗАГРУЖАЕМ СЧЁТЧИКИ АНАЛИТИКИ
-            loadAnalytics();
-        } else {
-            console.log('❌ Cookies отклонены — аналитика не загружается');
-            // БЛОКИРУЕМ АНАЛИТИКУ (просто ничего не делаем)
-            // Можно также удалить существующие куки аналитики
-            deleteAnalyticsCookies();
-        }
-    }
-    
-    // Функция загрузки аналитики (Яндекс.Метрика, Google Analytics)
-    function loadAnalytics() {
-        // Пример для Яндекс.Метрики (раскомментируйте и вставьте свой счётчик)
-        
-        (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-        m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-        (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
-        ym(107081588, "init", {
-            clickmap:true,
-            trackLinks:true,
-            accurateTrackBounce:true,
-            webvisor:true
-        });
-        
-        
-        // Пример для Google Analytics 4 (раскомментируйте и вставьте свой ID)
-        
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-EXKK6DPFXK');
-        
-        const script = document.createElement('script');
-        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-EXKK6DPFXK';
-        script.async = true;
-        document.head.appendChild(script);
-        
-    }
-    
-    // Функция удаления кук аналитики (если нужно)
-    function deleteAnalyticsCookies() {
-        // Пример удаления кук Google Analytics
-        document.cookie.split(";").forEach(function(c) {
-            if (c.includes('_ga') || c.includes('_gid') || c.includes('_ym')) {
-                document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=; expires=" + new Date().toUTCString() + "; path=/");
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const cookieBanner = document.getElementById('cookieConsentBanner');
+            const acceptBtn = document.getElementById('acceptCookies');
+            const declineBtn = document.getElementById('declineCookies');
+            
+            const cookieChoice = localStorage.getItem('cookieConsent');
+            
+            if (!cookieChoice) {
+                cookieBanner.style.display = 'block';
+            } else {
+                applyCookieConsent(cookieChoice);
+            }
+            
+            acceptBtn.addEventListener('click', function() {
+                localStorage.setItem('cookieConsent', 'accepted');
+                cookieBanner.style.display = 'none';
+                applyCookieConsent('accepted');
+            });
+            
+            declineBtn.addEventListener('click', function() {
+                localStorage.setItem('cookieConsent', 'declined');
+                cookieBanner.style.display = 'none';
+                applyCookieConsent('declined');
+            });
+            
+            function applyCookieConsent(choice) {
+                if (choice === 'accepted') {
+                    console.log('✅ Cookies приняты');
+                    loadAnalytics();
+                } else {
+                    console.log('❌ Cookies отклонены');
+                    deleteAnalyticsCookies();
+                }
+            }
+            
+            function loadAnalytics() {
+                (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+                m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+                (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+                ym(107081588, "init", {
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true,
+                    webvisor:true
+                });
+                
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', 'G-EXKK6DPFXK');
+                
+                const script = document.createElement('script');
+                script.src = 'https://www.googletagmanager.com/gtag/js?id=G-EXKK6DPFXK';
+                script.async = true;
+                document.head.appendChild(script);
+            }
+            
+            function deleteAnalyticsCookies() {
+                document.cookie.split(";").forEach(function(c) {
+                    if (c.includes('_ga') || c.includes('_gid') || c.includes('_ym')) {
+                        document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=; expires=" + new Date().toUTCString() + "; path=/");
+                    }
+                });
             }
         });
-    }
-    
-    // Если пользователь уже дал согласие — показываем кнопку "Настроить куки" (опционально)
-    // Можно добавить в подвал сайта ссылку для повторного открытия баннера
-});
-</script>
+    </script>
 
-<!-- Кнопка для повторного открытия баннера (опционально, добавьте в подвал) -->
-<div style="text-align: center; margin-top: 20px;">
-    <button id="resetCookieConsent" style="background: none; border: 1px solid #3498db; color: #3498db; padding: 5px 10px; border-radius: 5px; cursor: pointer; font-size: 12px;">⚙️ Настройка куки</button>
-</div>
+    <!-- ПОДВАЛ (ТОЛЬКО ОДИН РАЗ) -->
+    <div class="site-footer">
+        <div class="footer-content">
+            <button id="resetCookieConsent" class="cookie-settings-btn">
+                ⚙️ Настройка куки
+            </button>
 
-<script>
-// Сброс выбора (для тестирования или кнопки в подвале)
-document.getElementById('resetCookieConsent')?.addEventListener('click', function() {
-    localStorage.removeItem('cookieConsent');
-    document.getElementById('cookieConsentBanner').style.display = 'block';
-});
-</script>
+            <div class="footer-links">
+                <a href="privacy.html">Политика конфиденциальности</a>
+                <span class="separator">|</span>
+                <a href="terms.html">Пользовательское соглашение</a>
+            </div>
+
+            <div class="copyright">
+                © 2025 Мокров Кирилл Владимирович
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('resetCookieConsent')?.addEventListener('click', function() {
+            localStorage.removeItem('cookieConsent');
+            document.getElementById('cookieConsentBanner').style.display = 'block';
+        });
+    </script>
 </body>
-
 </html>
