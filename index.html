@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+    <meta http-equiv="Cache-Control" content="max-age=31536000">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Компас 3D на заказ | Инженерная графика</title>
@@ -133,6 +134,20 @@
                 width: auto;
             }
         }
+        @media (max-width: 900px) {
+    body {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .left-card {
+        order: 2;  /* левый блок станет вторым */
+    }
+    
+    .card {
+        order: 1;  /* правый блок станет первым */
+    }
+}
     </style>
 </head>
 <body>
@@ -153,7 +168,7 @@
 
     <!-- Правый блок -->
     <div class="card">
-        <img src="ava.jpg" alt="Моё фото" class="avatar">
+        <img src="ava.jpg" alt="Моё фото" class="avatar" loading = "lazy">
         <h2>Мокров Кирилл</h2>
         <p class="title">Инженер-конструктор | КОМПАС-3D</p>
         <p>Опыт работы более 2 лет. Выполняю чертежи любой сложности строго по ГОСТ.</p>
