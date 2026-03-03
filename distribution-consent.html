@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Согласие на распространение персональных данных</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background-color: transparent;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            color: white;
+            text-shadow: 2px 2px 5px black;
+            position: relative;
+            background-image: url('fon 1.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        /* Затемнение для фона */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: -1;
+        }
+
+        /* Основной контейнер */
+        .content {
+            position: relative;
+            z-index: 1;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+
+        /* Карточка с текстом */
+        .consent-card {
+            background-color: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(5px);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+            max-width: 800px;
+            width: 100%;
+            text-align: left;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            color: white;
+            font-size: clamp(22px, 5vw, 28px);
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+
+        h2 {
+            color: #3498db;
+            font-size: clamp(18px, 4vw, 20px);
+            margin: 25px 0 10px;
+        }
+
+        p, li {
+            color: white;
+            font-size: clamp(14px, 3.5vw, 16px);
+            line-height: 1.6;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        li::before {
+            content: "•";
+            color: #3498db;
+            font-size: 20px;
+            position: absolute;
+            left: 0;
+            top: -2px;
+        }
+
+        strong {
+            color: #3498db;
+        }
+
+        .important {
+            background-color: rgba(52, 152, 219, 0.2);
+            border-left: 4px solid #3498db;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+
+        .important strong {
+            color: #3498db;
+        }
+
+        .important u {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        a {
+            color: #3498db;
+            text-decoration: underline;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: white;
+        }
+
+        /* Верхняя навигация */
+        .top-nav {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .back-link {
+            color: #3498db;
+            text-decoration: underline;
+            font-size: 16px;
+        }
+
+        .back-link:hover {
+            color: white;
+        }
+
+        /* Подвал */
+        .footer-note {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #3498db;
+            text-align: center;
+            color: #aaa;
+            font-size: 13px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .footer-links a {
+            color: #3498db;
+            text-decoration: underline;
+            font-size: 13px;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .separator {
+            color: #555;
+            font-weight: 300;
+        }
+
+        .copyright {
+            color: #aaa;
+        }
+
+        /* Для мобильных */
+        @media (max-width: 600px) {
+            .consent-card {
+                padding: 20px;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                gap: 5px;
+            }
+            
+            .separator {
+                display: none;
+            }
+            
+            .footer-links a {
+                display: block;
+                padding: 3px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <div class="consent-card">
+            <!-- Верхняя навигация: Вернуться на главную -->
+            <div class="top-nav">
+                <a href="index.html" class="back-link">← Вернуться на главную</a>
+            </div>
+
+            <h1>СОГЛАСИЕ НА РАСПРОСТРАНЕНИЕ ПЕРСОНАЛЬНЫХ ДАННЫХ</h1>
+            
+            <p>Настоящим, действуя свободно, своей волей и в своем интересе, я подтверждаю свое согласие на распространение персональных данных Индивидуальным предпринимателем <strong>Мокровым Кириллом Владимировичем</strong> (ИНН 525111420574) (далее — Оператор).</p>
+
+            <div class="important">
+                <strong>Важно:</strong> Данное согласие действует <u>только на распространение</u> персональных данных в открытых источниках (сайт, социальные сети). Обработка персональных данных (сбор, хранение) регулируется отдельным <a href="privacy.html" target="_blank">Согласием на обработку персональных данных</a>.
+            </div>
+
+            <h2>1. Цель распространения персональных данных</h2>
+            <p>Персональные данные распространяются в следующих целях:</p>
+            <ul>
+                <li>публикация отзывов о работе Оператора;</li>
+                <li>размещение фотографий выполненных работ, на которых изображен субъект персональных данных;</li>
+                <li>демонстрация кейсов с указанием заказчика (при его согласии);</li>
+                <li>информирование потенциальных клиентов о качестве услуг.</li>
+            </ul>
+
+            <h2>2. Категории персональных данных, на распространение которых дается согласие</h2>
+            <ul>
+                <li><strong>фамилия, имя, отчество</strong> (или псевдоним, если указан);</li>
+                <li><strong>фотография</strong> (изображение);</li>
+                <li><strong>текст отзыва</strong> или описание выполненной работы;</li>
+                <li><strong>город проживания</strong> (только по желанию субъекта).</li>
+            </ul>
+
+            <h2>3. Условия и запреты</h2>
+            <p>Распространение персональных данных осуществляется с соблюдением следующих условий:</p>
+            <ul>
+                <li>персональные данные не передаются третьим лицам для обработки (за исключением технической инфраструктуры сайта);</li>
+                <li>оператор обязуется удалить распространенные данные по первому письменному требованию субъекта;</li>
+                <li>субъект вправе в любой момент отозвать настоящее согласие.</li>
+            </ul>
+
+            <h2>4. Срок действия и порядок отзыва</h2>
+            <p>Настоящее согласие действует бессрочно, но может быть отозвано субъектом персональных данных в любое время.</p>
+            <p><strong>Отзыв согласия осуществляется</strong> путем направления письменного заявления на электронную почту: <strong>Kirillmokr06@gmail.com</strong> или по телефону: <strong>+7 (986) 766-96-70</strong>.</p>
+            <p>После получения отзыва Оператор обязуется удалить распространенные персональные данные из открытых источников в течение 3 рабочих дней.</p>
+
+            <h2>5. Информация для субъекта</h2>
+            <p>Я подтверждаю, что, давая согласие на распространение персональных данных, я действую без принуждения, добровольно и в своем интересе.</p>
+
+            <!-- ПОДВАЛ как на примерах -->
+            <div class="footer-note">
+                <div class="copyright">
+                    © 2025 Мокров Кирилл Владимирович. Все права защищены.
+                </div>
+                <div class="footer-links">
+                    <a href="index.html">Вернуться на главную</a>
+                    <span class="separator">|</span>
+                    <a href="privacy.html">Политика конфиденциальности</a>
+                </div>
+                <div style="font-size: 12px; color: #777; margin-top: 5px;">
+                    Данный документ является официальным согласием в соответствии с Приказом Роскомнадзора № 18 от 24.02.2021
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
