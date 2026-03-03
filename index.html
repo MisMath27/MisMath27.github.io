@@ -3,22 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Компас 3D на заказ | Инженерная графика | Чертежи для студентов</title>
+    <title>Компас 3D на заказ | Инженерная графика</title>
     <link rel="icon" href="favicon.jpg" type="image/jpeg">
-    <meta name="description" content="Профессиональные услуги по инженерной и компьютерной графике в Компас 3D. Чертежи, 3D-модели на заказ. Быстро, качественно, недорого.">
     <style>
         body {
             font-family: Arial, sans-serif;
-            text-align: center;
             margin: 0;
-            padding: 30px;
+            padding: 20px;
             background-image: url('fon.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
-            position: relative;
             color: white;
             text-shadow: 2px 2px 5px black;
+            min-height: 100vh;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 20px;
+            box-sizing: border-box;
         }
 
         body::before {
@@ -32,84 +35,109 @@
             z-index: -1;
         }
 
-        .card {
+        /* Левый блок */
+        .left-card {
             background-color: rgba(0, 0, 0, 0.7);
-            border-radius: 20px;
-            padding: 30px;
-            max-width: 400px;
-            margin: 30px auto;
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
             backdrop-filter: blur(5px);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+            max-width: 500px;
+            width: 100%;
+            text-align: left;
+        }
+
+        .left-card h1 {
+            font-size: 28px;
+            margin-top: 0;
+        }
+
+        .left-card ul {
+            list-style: none;
+            padding: 0;
+            line-height: 2;
+            font-size: 18px;
+        }
+
+        .left-card li {
+            margin-bottom: 10px;
+        }
+
+        .left-card a {
+            display: inline-block;
+            margin: 5px 5px 5px 0;
+            padding: 8px 16px;
+            background-color: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        .left-card a:hover {
+            background-color: #2980b9;
+        }
+
+        /* Правый блок (карточка) */
+        .card {
+            background-color: rgba(0,   black, 0.7);
+            backdrop-filter: blur(5px);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+            max-width: 350px;
+            width: 100%;
+            text-align: center;
         }
 
         .avatar {
             width: 120px;
             height: 120px;
-            border-radius: 50%;
+            border-radius: 0;
             object-fit: cover;
-            border: 3px solid #3498db;
+            border: 3px solid #2f2f31;
             margin-bottom: 15px;
         }
 
         .card h2 {
-            color: white;
-            margin: 10px 0 5px;
             font-size: 24px;
+            margin: 10px 0 5px;
         }
 
         .card .title {
             color: #3498db;
             font-size: 18px;
-            margin: 5px 0;
             font-weight: bold;
         }
 
         .card p {
-            color: #ddd;
             font-size: 16px;
             line-height: 1.5;
-            margin: 15px 0 0;
-        }
-
-        a {
-            display: inline-block;
-            margin: 10px;
-            padding: 10px 20px;
-            background-color: #3498db;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 18px;
-        }
-
-        a:hover {
-            background-color: #2980b9;
         }
     </style>
 </head>
 <body>
-    <div class="card">
-        <img src="ava.jpg" alt="Моё фото" class="avatar">
-        <h2>Мокров Кирилл </h2>
-        <p class="title">Инженер-конструктор | КОМПАС-3D</p>
-        <p>Опыт работы более 2 лет. Выполняю чертежи любой сложности строго по ГОСТ.</p>
+    <!-- Левый блок -->
+    <div class="left-card">
+        <h1>Привет! Я предлагаю услуги по инженерной и компьютерной графике на заказ</h1>
+        <ul>
+            <li>🖥️ Удалённо КОМПАС-3D</li>
+            <li>🛠️ Удалённая помощь</li>
+            <li>📞 Связь со мной: +7 (986) 766-96-70</li>
+        </ul>
+        <div>
+            <a href="https://www.avito.ru/..." target="_blank">📢 Моё объявление на Авито</a>
+            <a href="https://t.me/MisMath29" target="_blank">✈️ Написать мне в Telegram</a>
+            <a href="https://t.me/+lamV-xIGVA1kZjNi" target="_blank">📢 Мой Telegram-канал</a>
+        </div>
     </div>
 
-    <h1>Привет! Я предлагаю услуги по инженерной и компьютерной графике на заказ</h1>
-    <p>🖥️ Удалённо КОМПАС-3D</p>
-    <p>🛠️ Удалённая помощь</p>
-    <p>📞 Связь со мной: +7 (986) 766-96-70</p>
-
-    <div>
-        <a href="https://www.avito.ru/vyksa/predlozheniya_uslug/kompas_3d_inzhenernaya_i_kompyuternaya_grafika_7928566217" target="_blank">
-            📢 Моё объявление на Авито
-        </a>
-        <a href="https://t.me/MisMath29" target="_blank">
-            ✈️ Написать мне в Telegram
-        </a>
-        <a href="https://t.me/+lamV-xIGVA1kZjNi" target="_blank">
-            📢 Мой Telegram-канал
-        </a>
+    <!-- Правый блок -->
+    <div class="card">
+        <img src="ava.jpg" alt="Моё фото" class="avatar">
+        <h2>Мокров Кирилл</h2>
+        <p class="title">Инженер-конструктор | КОМПАС-3D</p>
+        <p>Опыт работы более 2 лет. Выполняю чертежи любой сложности строго по ГОСТ.</p>
     </div>
 </body>
 </html>
