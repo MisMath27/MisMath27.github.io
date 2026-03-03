@@ -7,14 +7,14 @@
     <title>Компас 3D на заказ | Инженерная графика</title>
     <link rel="icon" href="favicon.jpg" type="image/jpeg">
     <style>
-        body {
+        body  {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 20px;
-            background-image: url('fon.jpg');
+            background-image: url('fon 1.jpg');
             background-size: cover;
             background-position: center;
-            background-attachment: fixed;
+            background-attachment: scroll;
             color: white;
             text-shadow: 2px 2px 5px black;
             min-height: 100vh;
@@ -35,7 +35,22 @@
             background-color: rgba(0, 0, 0, 0.5);
             z-index: -1;
         }
+        
+    .bottom-image {
+    display: block;
+    width: 100%;
+    max-width: 600px;
+    margin: 40px auto;
+    border-radius: 20px;
+    opacity: 0;
+    animation: fadeInOnScroll 1s ease-in forwards;
+    animation-timeline: view(); /* современный способ */
+}
 
+@keyframes fadeInOnScroll {
+    from { opacity: 0; transform: translateY(50px); }
+    to { opacity: 1; transform: translateY(0); }
+}
         /* Левый блок */
         .left-card {
             background-color: rgba(0, 0, 0, 0.7);
@@ -151,6 +166,7 @@
     </style>
 </head>
 <body>
+     <img src="nijniaia-kartinka.jpg" class="bottom-image" alt="картинка внизу">
     <!-- Левый блок -->
     <div class="left-card">
         <h1>Привет! Я предлагаю услуги по инженерной и компьютерной графике на заказ</h1>
