@@ -18,9 +18,8 @@
             text-shadow: 2px 2px 5px black;
             min-height: 100vh;
             display: flex;
-            justify-content: center;
-            gap: 50px;
-            align-items: flex-start;
+            flex-direction: column;
+            align-items: center;
             gap: 20px;
             box-sizing: border-box;
         }
@@ -38,30 +37,31 @@
 
         /* Левый блок */
         .left-card {
-            background-color: rgba(0,   black, 0.7);
+            background-color: rgba(0, 0, 0, 0.7);
             backdrop-filter: blur(5px);
-            padding: 30px;
+            padding: 25px;
             border-radius: 20px;
             box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
             max-width: 500px;
             width: 100%;
             text-align: left;
+            box-sizing: border-box;
         }
 
         .left-card h1 {
-            font-size: 28px;
+            font-size: clamp(22px, 6vw, 28px);
             margin-top: 0;
         }
 
         .left-card ul {
             list-style: none;
             padding: 0;
-            line-height: 2;
-            font-size: 18px;
+            line-height: 1.8;
+            font-size: clamp(16px, 4vw, 18px);
         }
 
         .left-card li {
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
 
         .left-card a {
@@ -72,28 +72,32 @@
             color: white;
             text-decoration: none;
             border-radius: 8px;
-            font-size: 16px;
+            font-size: clamp(14px, 3.5vw, 16px);
+            width: calc(100% - 10px);
+            text-align: center;
+            box-sizing: border-box;
         }
 
         .left-card a:hover {
             background-color: #2980b9;
         }
 
-        /* Правый блок (карточка) */
+        /* Правый блок */
         .card {
-            background-color: rgba(0,   black, 0.7);
+            background-color: rgba(0, 0, 0, 0.7);
             backdrop-filter: blur(5px);
-            padding: 30px;
+            padding: 25px;
             border-radius: 20px;
             box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
             max-width: 350px;
             width: 100%;
             text-align: center;
+            box-sizing: border-box;
         }
 
         .avatar {
-            width: 120px;
-            height: 120px;
+            width: min(120px, 30vw);
+            height: min(120px, 30vw);
             border-radius: 0;
             object-fit: cover;
             border: 3px solid #2f2f31;
@@ -101,19 +105,33 @@
         }
 
         .card h2 {
-            font-size: 24px;
+            font-size: clamp(20px, 5vw, 24px);
             margin: 10px 0 5px;
         }
 
         .card .title {
             color: #3498db;
-            font-size: 18px;
+            font-size: clamp(16px, 4vw, 18px);
             font-weight: bold;
         }
 
         .card p {
-            font-size: 16px;
+            font-size: clamp(14px, 3.5vw, 16px);
             line-height: 1.5;
+        }
+
+        /* Для широких экранов */
+        @media (min-width: 900px) {
+            body {
+                flex-direction: row;
+                justify-content: center;
+                align-items: flex-start;
+                gap: 40px;
+            }
+            
+            .left-card a {
+                width: auto;
+            }
         }
     </style>
 </head>
@@ -127,7 +145,7 @@
             <li>📞 Связь со мной: +7 (986) 766-96-70</li>
         </ul>
         <div>
-            <a href="https://www.avito.ru/..." target="_blank">✅ Моё объявление на Авито</a>
+            <a href="https://www.avito.ru/vyksa/predlozheniya_uslug/kompas_3d_inzhenernaya_i_kompyuternaya_grafika_7928566217" target="_blank">✅ Моё объявление на Авито</a>
             <a href="https://t.me/MisMath29" target="_blank">✅ Написать мне в Telegram</a>
             <a href="https://t.me/+lamV-xIGVA1kZjNi" target="_blank">✅ Мой Telegram-канал</a>
         </div>
