@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://mismath27.github.io/</loc>
-    <lastmod>2025-03-02</lastmod>
+    <url>
+    <loc>https://kompas.is-a.dev/</loc>  <!-- ← заменили здесь -->
+    <lastmod>2026-03-09</lastmod>        <!-- ← обновите дату на сегодня -->
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-  </url>
+    </url>
 </urlset>
